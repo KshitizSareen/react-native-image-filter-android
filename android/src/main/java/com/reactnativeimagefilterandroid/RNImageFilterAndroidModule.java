@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package com.reactnativeimagefilterandroid;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -50,7 +50,7 @@ public class RNImageFilterAndroidModule extends ReactContextBaseJavaModule {
   @NonNull
   @Override
   public String getName() {
-    return "FilterImage";
+    return "ImageFilters";
   }
 
 
@@ -107,8 +107,13 @@ public class RNImageFilterAndroidModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void SharpenImage(String ImageUri,Integer Sharpen,final Promise promise)
+  public void SharpenImage(String ImageUri,float Sharpen,final Promise promise)
   {
+    if(Sharpen<=0)
+    {
+      promise.resolve(ImageUri);
+      return;
+    }
     Bitmap ImageBitMap=null;
     if(BitMapHashMap.containsKey(ImageUri))
     {
@@ -225,7 +230,7 @@ public class RNImageFilterAndroidModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void SetHue(String ImageUri,Integer Hue,final Promise promise)
+  public void SetHue(String ImageUri,float Hue,final Promise promise)
   {
     Bitmap ImageBitMap=null;
     if(BitMapHashMap.containsKey(ImageUri))
@@ -468,6 +473,10 @@ public class RNImageFilterAndroidModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void SetBrightness(String ImageUri,float Brightness, final Promise promise)
   {
+    if(Brightness<=0){
+      promise.resolve(ImageUri);
+      return;
+    }
     Bitmap ImageBitMap=null;
     if(BitMapHashMap.containsKey(ImageUri))
     {
@@ -625,7 +634,7 @@ public class RNImageFilterAndroidModule extends ReactContextBaseJavaModule {
   {
     File ImageFile = this.getReactApplicationContext().getCacheDir();
     try {
-      ImageFile = createTempFile(UUID.randomUUID().toString(), ".png", ImageFile);
+      ImageFile = File.createTempFile(UUID.randomUUID().toString(), ".png", ImageFile);
       FileOutputStream fOut = new FileOutputStream(ImageFile);
       if(ImageBitMap!=null) {
         ImageBitMap.compress(Bitmap.CompressFormat.PNG, 10, fOut);
