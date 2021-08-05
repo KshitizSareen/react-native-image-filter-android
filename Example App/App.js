@@ -10,19 +10,16 @@
  import {
    Dimensions,
    TouchableOpacity,
-   NativeModules,
    Image,
    View,
    Text,
    FlatList,
-   ImageBackground
  } from 'react-native';
  import ImagePicker from 'react-native-image-crop-picker';
 import FilterImage from 'react-native-image-filter-android';
 import Slider from '@react-native-community/slider';
  
  const windowWidth=Dimensions.get('window').width;
- const windowHeight=Dimensions.get('window').height;
  
  class App extends Component
  {

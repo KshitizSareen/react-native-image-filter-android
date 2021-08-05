@@ -10,22 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-community/image-editor": "^2.3.0",
     "@react-native-community/slider": "^3.0.3",
-    "gl-react": "^5.0.0",
-    "gl-react-native": "^5.0.0",
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-gesture-handler": "^1.10.3",
     "react-native-image-crop-picker": "^0.36.2",
-    "react-native-image-cropper": "^0.4.5",
     "react-native-image-filter-android": "^1.0.6",
-    "react-native-image-pan-zoom": "^2.1.12",
-    "react-native-reanimated": "^2.2.0",
-    "react-native-send-receive-sms-android": "^1.0.91",
-    "react-native-simple-image-cropper": "^3.2.1",
-    "react-native-slice-image": "^1.0.2",
-    "react-native-slider": "^0.11.0"
+    "react-native-reanimated": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
